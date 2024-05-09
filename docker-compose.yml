@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   php:
+    networks:
+      - my-network
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,6 +16,8 @@ services:
 
   mysql:
     image: mysql:latest
+    networks:
+      - my-network
     environment:
       MYSQL_ROOT_PASSWORD: test
       MYSQL_DATABASE: test
@@ -22,3 +26,7 @@ services:
       SITE_URL: http://localhost
     ports:
       - "3306:3306"
+
+networks:
+  my-network:
+    driver: bridge
