@@ -9,8 +9,8 @@ services:
       - "80:80"
     depends_on:
       - mysql
-#    volumes:
-#      - ./app:/var/www/html
+    volumes:
+      - ./app:/home/nastya/docker_task/data
 
   mysql:
     image: mysql:latest
